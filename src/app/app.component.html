@@ -1,3 +1,8 @@
-<p>Our first Application</p>
-<app-post-create></app-post-create>
-<router-outlet></router-outlet>
+<app-header></app-header>
+<main>
+    <app-post-create 
+    (postCreated)="onPostAdded($event)">
+    </app-post-create>
+    <app-post-list [posts]="storedPosts"></app-post-list>
+
+</main> 

@@ -6,11 +6,15 @@ import { PostCreateComponent } from './posts/post-create/post-create.component';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { CoustomMaterailModule } from './coustom-materail/coustom-materail.module';
+import { HeaderComponent } from './header/header.component';
+import { PostListComponent } from './posts/post-list/post-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PostCreateComponent
+    PostCreateComponent,
+    PostListComponent,
+    HeaderComponent,
   ],
   imports: [
     ReactiveFormsModule,
