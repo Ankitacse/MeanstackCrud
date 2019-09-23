@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { CoustomMaterailModule } from './coustom-materail/coustom-materail.module';
 import { HeaderComponent } from './header/header.component';
 import { PostListComponent } from './posts/post-list/post-list.component';
+import { PostsService } from './services/post.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { PostListComponent } from './posts/post-list/post-list.component';
     AppRoutingModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [PostsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
