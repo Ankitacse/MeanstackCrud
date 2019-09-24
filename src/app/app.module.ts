@@ -9,6 +9,7 @@ import { CoustomMaterailModule } from './coustom-materail/coustom-materail.modul
 import { HeaderComponent } from './header/header.component';
 import { PostListComponent } from './posts/post-list/post-list.component';
 import { PostsService } from './services/post.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { PostsService } from './services/post.service';
   imports: [
     ReactiveFormsModule,
     FormsModule,
+    HttpClientModule,
     BrowserModule,
     CoustomMaterailModule,
     AppRoutingModule,
