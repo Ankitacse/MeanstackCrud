@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { Post } from 'src/app/models/post.model';
 import { PostsService } from 'src/app/services/post.service';
-import {Subscription} from 'rxjs';
+import { Subscription } from 'rxjs';
 
 @Component({
     selector: 'app-post-list',
@@ -9,7 +9,7 @@ import {Subscription} from 'rxjs';
     styleUrls: ['./post-list.component.scss']
 })
 
-export class PostListComponent implements OnInit ,OnDestroy{
+export class PostListComponent implements OnInit, OnDestroy {
     // posts=[
     //     {title:'First Post' , content:'This is  first post\'s content'},
     //     {title:'second Post' , content:'This is  second post\'s content'},
@@ -17,17 +17,20 @@ export class PostListComponent implements OnInit ,OnDestroy{
     // ]; 
     // @Input() posts:Post []=[];
     posts: Post[] = [];
-    private postsSub :Subscription;
+    private postsSub: Subscription;
     constructor(public postsService: PostsService) {
- 
+
     }
     ngOnInit() {
-     this.postsService.getPosts();
-       this.postsSub= this.postsService.getPostUpdateListner().subscribe((posts:Post[])=>{
-         this.posts = posts;
+        this.postsService.getPosts();
+        this.postsSub = this.postsService.getPostUpdateListner().subscribe((posts: Post[]) => {
+            this.posts = posts;
         });
     }
- ngOnDestroy(){
-     this.postsSub.unsubscribe(); 
- }
+    ngOnDestroy() {
+        this.postsSub.unsubscribe();
+    }
+    onDelete(postId: string) {
+        this.postsService.deletePost(postId);
+    }
 }
