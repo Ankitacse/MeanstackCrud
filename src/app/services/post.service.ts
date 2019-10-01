@@ -44,7 +44,6 @@ export class PostsService {
             this.posts.push(post);
             this.postsUpdated.next([...this.posts]);
         });
-
     }
 
     deletePost(postId: string) {
