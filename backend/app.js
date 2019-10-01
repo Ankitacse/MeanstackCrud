@@ -1,19 +1,25 @@
 const express = require("express");
-const bodyParser = require("body-parser");
+// const bodyParser = require("body-parser");
 const Post = require('./models/post');
 const app = express();
 //to connect to mongoose local data base
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/node-angular',
-    { useNewUrlParser: true }).then(() => {
+    {
+        useNewUrlParser: true
+        , useUnifiedTopology: true
+    })
+    .then(() => {
         console.log('Connected to database')
     }).catch(() => {
         console.log('Connection failed')
     });
-
-
+//cors set up
+/*body parser id removerd in upper version of express,
+we can directly used express for connectivity
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+ app.use(bodyParser.urlencoded({ extended: false }));*/
+app.use(express.json());
 app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader(
@@ -27,13 +33,6 @@ app.use((req, res, next) => {
     next();
 });
 
-// app.post("/api/posts", (req, res, next) => {
-//     const post = req.body;
-//     console.log(post);
-//     res.status(201).json({
-//         message: 'Post added successfully'
-//     });
-// });
 
 app.post("/api/posts", (req, res, next) => {
     const post = new Post({
@@ -56,21 +55,14 @@ app.get('/api/posts', (req, res, next) => {
         });
     });
 });
-// app.delete("/api/posts/:id", (req, res, next) => {
-//     Post.deleteOne({ _id: req.paramas.id }).then(result => {
-//         console.log(result);
-//         res.status(200).json({ message: "Post deleted" });
-//     });
 
-// });
-app.delete("/api/posts/:id",(req,res,next) =>{
-  Post.deleteOne({_id: req.params.id}).then(result =>{
-      console.log(result);
-      res.status(200).json({
-        message:'Post Deleted'
-    });
-  })
-    
+app.delete("/api/posts/:id", (req, res, next) => {
+    Post.deleteOne({ _id: req.params.id }).then(result => {
+        console.log(result);
+        res.status(200).json({
+            message: 'Post Deleted'
+        });
+    })
 });
 app.use((req, res, next) => {
     res.send('Hello From express');
