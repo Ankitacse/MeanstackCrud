@@ -10,18 +10,15 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
   styleUrls: ['./post-create.component.scss']
 })
 export class PostCreateComponent implements OnInit {
-
   enteredTitle = '';
   enteredContent = '';
   mode = 'create';
   postId: string;
   post: Post;
   form: FormGroup;
-  imagePreview:string | ArrayBuffer;
- 
+  // imagePreview:string | ArrayBuffer;
+  imagePreview:any;
   isLoading = false;
-
-
   constructor(public postsService: PostsService,
     public route: ActivatedRoute) { }
 
@@ -75,8 +72,7 @@ export class PostCreateComponent implements OnInit {
     }
     else {
       this.postsService.updatePost(this.postId, this.form.value.title, this.form.value.content)
-    }
-    this.form.reset();
+    }this.form.reset();
   }
   onImagePicked(event: Event) {
     const file = (event.target as HTMLInputElement).files[0];
@@ -85,7 +81,8 @@ export class PostCreateComponent implements OnInit {
     console.log('file',file)
     const reader = new FileReader();
     reader.onload = () => {
-      this.imagePreview = reader.result;
+      // this.imagePreview = reader.result;
+      this.imagePreview = reader.result as string;
     }; 
     reader.readAsDataURL(file);
   }
