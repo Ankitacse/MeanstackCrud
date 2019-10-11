@@ -1,6 +1,18 @@
 const express = require("express");
 const router = express.Router();
+const multer = require("multer");
 const Post = require('../models/post');
+const MIME_TYPE_MAP ={
+
+};
+const storage = multer.diskStorage({
+    destination:(req,file,cb) => {
+        cb(null, "backend/images");
+    },
+    filename:(req,file,cb) =>{
+        const name = file.originalname.toLowerCase().split('').join('-');
+    }
+});
 
 router.post("", (req, res, next) => {
     const post = new Post({
