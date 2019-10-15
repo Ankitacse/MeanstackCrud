@@ -6,7 +6,7 @@ import {
   MatNativeDateModule, MatCardModule, MatSlideToggleModule, MatListModule,
   MatStepperModule, MatRadioModule, MatCheckboxModule, MatExpansionModule,
   MatProgressBarModule, MatSidenavModule, MatChipsModule, MatTooltipModule,
-  MatTabsModule, MatTableModule,MatTreeModule, MatAutocompleteModule
+  MatTabsModule, MatTableModule,MatTreeModule, MatAutocompleteModule, MatPaginatorModule
 } from '@angular/material';
 
 import {} from '@angular/material/tree';
@@ -20,7 +20,8 @@ import {} from '@angular/material/tree';
     MatSlideToggleModule, MatListModule, MatStepperModule, MatRadioModule,
     MatCheckboxModule, MatExpansionModule, MatProgressBarModule,
     MatSidenavModule, MatChipsModule, MatTooltipModule,
-    MatTabsModule, MatTableModule, MatAutocompleteModule,MatTreeModule
+    MatTabsModule,MatPaginatorModule,
+    MatTableModule, MatAutocompleteModule,MatTreeModule
   ]
 })
 export class CoustomMaterailModule { }
