@@ -35,14 +35,14 @@ router.post("", multer({ storage: storage }).single("image"), (req, res, next) =
         res.status(201).json({
             message: 'Post added successfully',
             post: {
-
-                /*
+        /*
                 //  id:createdPost._id,
                 // title:createdPost.title,
                 // content:createdPost.content,
                 // imagePath:createdPost.imagePath
                 // or we can use operator which return 
-                all json and can add extra id if required*/
+                all json and can add extra id if required
+                */
                 ...createdPost,
                 id: createdPost._id,
 
