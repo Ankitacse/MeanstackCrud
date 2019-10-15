@@ -1,3 +1,4 @@
+
 const express = require("express");
 const router = express.Router();
 const multer = require("multer");
@@ -52,7 +53,7 @@ router.post("", multer({ storage: storage }).single("image"), (req, res, next) =
 });
 
 router.put(
-    "/:id", multer({ storage: storage }).single("image"),(req, res, next) => {
+    "/:id", multer({ storage: storage }).single("image"), (req, res, next) => {
         let imagePath = req.body.imagePath;
         if (req.file) {
             const url = req.protocol + '://' + req.get("host");
@@ -66,11 +67,11 @@ router.put(
         });
         console.log('post', post)
         Post.updateOne({ _id: req.params.id }, post).then(result => {
-                console.log(result);
-                res.status(200).json({
-                    message: 'update successfull'
-                });
+            console.log(result);
+            res.status(200).json({
+                message: 'update successfull'
             });
+        });
     });
 router.get("", (req, res, next) => {
     Post.find().then(documents => {
