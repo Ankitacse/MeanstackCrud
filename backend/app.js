@@ -9,8 +9,8 @@ const app = express();
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/node-angular',
     {
-        useNewUrlParser: true
-        , useUnifiedTopology: true
+        useNewUrlParser: true,
+        useUnifiedTopology: true
     })
     .then(() => {
         console.log('Connected to database')
@@ -23,7 +23,7 @@ we can directly used express for connectivity
 app.use(bodyParser.json());
  app.use(bodyParser.urlencoded({ extended: false }));*/
 app.use(express.json());
-app.use("/images",express.static(path.join("backend/images")));
+app.use("/images", express.static(path.join("backend/images")));
 app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader(
@@ -39,7 +39,7 @@ app.use((req, res, next) => {
 
 
 
-app.use("/api/posts",postsRoutes);
-app.use("/api/users",usersRoutes);
+app.use("/api/posts", postsRoutes);
+app.use("/api/users", usersRoutes);
 
 module.exports = app;  
