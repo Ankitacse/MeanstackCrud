@@ -3,6 +3,7 @@ const express = require("express");
 
 // const bodyParser = require("body-parser");
 const postsRoutes = require("./routes/posts");
+
 const app = express();
 //to connect to mongoose local data base
 const mongoose = require('mongoose');
@@ -39,5 +40,6 @@ app.use((req, res, next) => {
 
 
 app.use("/api/posts",postsRoutes);
+
 
 module.exports = app;  
