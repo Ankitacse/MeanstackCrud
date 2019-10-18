@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 ;
-import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { AuthData } from '../models/auth-data.model';
 
@@ -10,7 +9,8 @@ import { AuthData } from '../models/auth-data.model';
 })
 export class AuthService {
 
-  constructor(private http: HttpClient, private route: Router) { }
+  constructor(private http: HttpClient) { }
+  
   createUser(email: string, password: string) {
     const authData: AuthData =
     {
@@ -18,7 +18,7 @@ export class AuthService {
       password: password
     };
     this.http
-      .post("http://localhost:3000/api/user/signup", authData)
+      .post("http://localhost:3000/api/users/signup", authData)
       .subscribe(response => {
         console.log(response);
       });
