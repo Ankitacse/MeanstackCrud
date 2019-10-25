@@ -7,17 +7,21 @@ import { AuthService } from 'src/app/services/auth.service';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss']
 })
-export class SignupComponent implements OnInit {
 
-  constructor(public authService: AuthService) { }
+export class SignupComponent implements OnInit {
   isLoading = false;
+  constructor(public authService: AuthService) { }
+  
   ngOnInit() {
   }
   onSignup(form: NgForm) {
-    console.log('form',form.value);
-      if(form.invalid){
-            return;
-       }
-     this.authService.createUser(form.value.email,form.value.paswword);
-   }
+    console.log('form', form.value);
+    this.authService.createUser(form.value.email,form.value.password);
+  //   if (form.invalid) {
+  //     return;
+  //   }
+  //  else{
+  //   this.authService.createUser(form.value.email,form.value.paswword);
+  //  }
+  }
 }
