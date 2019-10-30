@@ -9,10 +9,11 @@ import { CoustomMaterailModule } from './coustom-materail/coustom-materail.modul
 import { HeaderComponent } from './header/header.component';
 import { PostListComponent } from './posts/post-list/post-list.component';
 import { PostsService } from './services/post.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { AuthService } from './services/auth.service';
+import { AuthInterceptor } from './services/auth-interceptor';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { AuthService } from './services/auth.service';
     AppRoutingModule,
     BrowserAnimationsModule
   ],
-  providers: [PostsService,AuthService ],
+  providers: [PostsService,AuthService,
+    {provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true} ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

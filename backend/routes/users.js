@@ -29,27 +29,25 @@ router.post("/signup", (req, res, next) => {
 router.post("/login", async (req, res, next) => {
     let fetchedUser;
     try {
-        const user =  await User.findOne({ email: req.body.email });
-    
-        if(!user) {
+        const user = await User.findOne({ email: req.body.email });
+
+        if (!user) {
             return res.status(401).json({
                 message: "Email invalid"
             });
         }
-    
+
         const checkPassword = await bcrypt.compare(req.body.password, user.password);
-    
-        if(!checkPassword) {
+        if (!checkPassword) {
             return res.status(401).json({
                 message: "Wrong email and password"
             });
         }
         const token = jwt.sign(
             user,
-            'secret_this_should_be_longer',
+            "secret_this_should_be_longer",
             { expiresIn: "1h" }
         );
-    
         res.status(200).json({
             token: token
         });
@@ -57,7 +55,7 @@ router.post("/login", async (req, res, next) => {
     } catch (error) {
         throw error;
     }
-   
+
 });
 module.exports = router;
 
