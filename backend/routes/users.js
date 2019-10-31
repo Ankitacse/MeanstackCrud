@@ -26,36 +26,69 @@ router.post("/signup", (req, res, next) => {
 
 });
 
-router.post("/login", async (req, res, next) => {
-    let fetchedUser;
-    try {
-        const user = await User.findOne({ email: req.body.email });
+// router.post("/login", async (req, res, next) => {
+//     let fetchedUser;
+//     try {
+//         const user = await User.findOne({ email: req.body.email });
 
+//         if (!user) {
+//             return res.status(401).json({
+//                 message: "Email invalid"
+//             });
+//         }
+
+//         const checkPassword = await bcrypt.compare(req.body.password, user.password);
+//         if (!checkPassword) {
+//             return res.status(401).json({
+//                 message: "Wrong email and password"
+//             });
+//         }
+//         const token = jwt.sign(
+//             user,
+//             "secret_this_should_be_longer",
+//             { expiresIn: "1h" }
+//         );
+//         res.status(200).json({
+//             token: token
+//         });
+
+//     } catch (error) {
+//         throw error;
+//     }
+
+// });
+
+router.post("/login", (req, res, next) => {
+    let fetchedUsers;
+    User.findOne({ email: req.body.email }).then(user => {
+        /*find one user and now check weather user exit or not */
+        /* if user not exit*/
         if (!user) {
             return res.status(401).json({
-                message: "Email invalid"
+                message: 'Auth Failed User not exit'
             });
         }
-
-        const checkPassword = await bcrypt.compare(req.body.password, user.password);
-        if (!checkPassword) {
+        /* nocomparing check pasword by */
+        fetchedUsers=user;
+        return bcrypt.compare(req.body.password, user.password);
+    }).then(result => {
+        if (!result) {
             return res.status(401).json({
-                message: "Wrong email and password"
+                message: 'Auth Failed result'
             });
         }
         const token = jwt.sign(
-            user,
+            { email: fetchedUsers.email, userId: fetchedUsers._id },
             "secret_this_should_be_longer",
-            { expiresIn: "1h" }
-        );
-        res.status(200).json({
-            token: token
+            { expiresIn: "1h" });
+            res.status(200).json({
+                token:token
+            });
+    }).catch(err => {
+        return res.status(401).json({
+            message: 'Auth Failed catch'
         });
-
-    } catch (error) {
-        throw error;
-    }
-
+    });
 });
 module.exports = router;
 
