@@ -1,8 +1,8 @@
 # MeanstackCrud
-<b>this project is depend on </b>
-1)Angular 8
-2)MongoDb
-3)Nodejs
+<b>this project is depend on </b><br>
+1)Angular 8<br>
+2)MongoDb<br>
+3)Nodejs<br>
 
 
 # Some Important url
@@ -19,11 +19,12 @@ and "ng serve --open"  to access your project .
 
 note :- "Its necessary to run backend otherwise you find Loarder only ..nothing else.. and can go to <b>Sub branches(development ,authentications etc..) for details"
 
-# Work Detail.
-
-1) You can SignUp to create new account .
-2)You May login to new account you just created using Signup form.
-3)Go to inner pages and UPLOAD files or Images and also add notes or content you want
-4)you can save and edit content.
-5)I have done dynamic pagination here. SO number of page and numbers depend on data you have had.
+ # Work Detail. <br>
+<br>
+ 1) You can SignUp to create new account .<br>
+ 2)You May login to new account you just created using Signup form.<br>
+ 3)Go to inner pages and UPLOAD files or Images and also add notes or content you want<br>
+ 4)you can save and edit content.<br>
+ 5)I have done dynamic pagination here. SO number of page and numbers depend on data you have had.<br>
+ 
 # Thank you so much for giving your valuable time.
