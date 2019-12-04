@@ -21,10 +21,11 @@ note :- "Its necessary to run backend otherwise you find Loarder only ..nothing 
 
  # Work Detail. <br>
 <br>
-As here i did `Authentication` and create login sign in form so.. <br>
+As here i did ` Authentication ` and create login sign in form so.. <br>
  1) You can SignUp to create new account .<br>
  2)You May login to new account you just created using Signup form.<br>
- 3)Go to inner pages and ` UPLOAD files or Images` and also `add notes or content` you want and data saved on `mongo DB` <br>
+ 3)Go to inner pages and  ` UPLOAD files or Images`  and also  `add notes or content` 
+ you want and data saved on `mongo DB` <br>
  4)you can `save and edit content`.<br>
  5)I have done dynamic pagination here. SO number of page and numbers depend on data you have had.<br>
  
