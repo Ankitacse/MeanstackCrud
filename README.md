@@ -21,7 +21,7 @@ note :- "Its necessary to run backend otherwise you find Loarder only ..nothing 
 
  # Work Detail. <br>
 <br>
-As here i did `Authentication` and create login sign in form so..
+As here i did `Authentication` and create login sign in form so.. <br>
  1) You can SignUp to create new account .<br>
  2)You May login to new account you just created using Signup form.<br>
  3)Go to inner pages and ` UPLOAD files or Images` and also `add notes or content` you want and data saved on `mongo DB` <br>
