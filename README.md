@@ -21,9 +21,9 @@ note :- "Its necessary to run backend otherwise you find Loarder only ..nothing 
 
 # Work Detail.
 
-1) You can SINGH IN nad create new account .
-2)You May login to new account you just created.
-3)Go to innerpage and UPLOAD files or Images and also add notes or content you want
+1) You can SignUp to create new account .
+2)You May login to new account you just created using Signup form.
+3)Go to inner pages and UPLOAD files or Images and also add notes or content you want
 4)you can save and edit content.
 5)I have done dynamic pagination here. SO number of page and numbers depend on data you have had.
 # Thank you so much for giving your valuable time.
